@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg, #fff1f2, #ffe4e6);
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  text-align: center;
+}
+
+.viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* BOTÕES */
+button {
+  border: none;
+  background: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* CONTAINER */
+#card-container {
+  perspective: 1000px;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* FACES */
+.face {
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+/* FRENTE */
+.front img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* VERSO */
+.back {
+  position: absolute;
+  inset: 0;
+  background: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.0rem;
+
+  /* 🔴 ESSENCIAL */
+  white-space: pre-line;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+.back button {
+  margin-top: 16px;
+  background: #fb7185;
+  color: white;
+  padding: 10px;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+#clima {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* SOL */
+.sol {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffe066, #fbbf24);
+  border-radius: 50%;
+  animation: flutuar 6s ease-in-out infinite;
+}
+
+/* LUA */
+.lua {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #f1f5f9, #cbd5f5);
+  border-radius: 50%;
+  animation: flutuar 8s ease-in-out infinite;
+}
+
+/* CHUVA */
+.gota {
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background: rgba(255,255,255,.6);
+  animation: cair 1.2s linear infinite;
+}
+
+@keyframes cair {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(100vh); }
+}
+
+@keyframes flutuar {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* efeito pulsar apenas para a interrogação */
+.card:last-child img {
+  animation: pulsar 1.5s infinite alternate;
+}
+
+@keyframes pulsar {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
