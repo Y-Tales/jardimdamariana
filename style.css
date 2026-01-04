@@ -43,9 +43,9 @@ button {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.9s;
-  width: 90vw;        /* responsivo */
-  max-width: 400px;   /* desktop */
-  height: auto;
+  width: 90vw;           /* responsivo */
+  max-width: 400px;      /* limite para desktop */
+  aspect-ratio: 3/4;     /* altura proporcional à largura */
   cursor: pointer;
 }
 
@@ -60,7 +60,7 @@ button {
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
   overflow: hidden;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,8 @@ button {
 .front img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;    /* mantém proporção da imagem */
   border-radius: 12px;
 }
 
@@ -86,8 +87,6 @@ button {
   padding: 20px;
   font-family: 'Patrick Hand', cursive;
   font-size: 1rem;
-
-  /* 🔴 ESSENCIAL */
   white-space: pre-line;
   line-height: 1.6;
   text-align: center;
@@ -168,7 +167,7 @@ button {
 /* RESPONSIVO PARA TELAS PEQUENAS */
 @media (max-width: 480px) {
   .card {
-    width: 95vw;     /* quase toda a largura da tela */
+    width: 95vw;     /* ocupa quase toda a tela */
     max-width: none;
   }
 
