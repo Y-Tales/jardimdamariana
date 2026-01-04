@@ -31,6 +31,11 @@ button {
 /* CONTAINER */
 #card-container {
   perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* CARD */
@@ -38,6 +43,10 @@ button {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.9s;
+  width: 90vw;        /* responsivo */
+  max-width: 400px;   /* desktop */
+  height: auto;
+  cursor: pointer;
 }
 
 .card.flipped {
@@ -50,6 +59,11 @@ button {
   border-radius: 16px;
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
   overflow: hidden;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* FRENTE */
@@ -57,6 +71,7 @@ button {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 12px;
 }
 
 /* VERSO */
@@ -70,7 +85,7 @@ button {
   justify-content: center;
   padding: 20px;
   font-family: 'Patrick Hand', cursive;
-  font-size: 1.0rem;
+  font-size: 1rem;
 
   /* 🔴 ESSENCIAL */
   white-space: pre-line;
@@ -78,7 +93,7 @@ button {
   text-align: center;
 }
 
-
+/* Botão voltar */
 .back button {
   margin-top: 16px;
   background: #fb7185;
@@ -88,11 +103,7 @@ button {
   font-size: 1rem;
 }
 
-
-
-
-
-
+/* Clima */
 #clima {
   position: fixed;
   inset: 0;
@@ -144,11 +155,6 @@ button {
   50% { transform: translateY(10px); }
 }
 
-.card img {
-  width: 100%;
-  border-radius: 12px;
-}
-
 /* efeito pulsar apenas para a interrogação */
 .card:last-child img {
   animation: pulsar 1.5s infinite alternate;
@@ -157,4 +163,22 @@ button {
 @keyframes pulsar {
   from { transform: scale(1); }
   to { transform: scale(1.05); }
+}
+
+/* RESPONSIVO PARA TELAS PEQUENAS */
+@media (max-width: 480px) {
+  .card {
+    width: 95vw;     /* quase toda a largura da tela */
+    max-width: none;
+  }
+
+  .back {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .back button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
 }
