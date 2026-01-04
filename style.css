@@ -4,9 +4,6 @@ body {
   background: linear-gradient(180deg, #fff1f2, #ffe4e6);
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden; /* evita scroll horizontal */
 }
 
 main {
@@ -14,8 +11,8 @@ main {
   max-width: 420px;
   padding: 20px;
   text-align: center;
-  box-sizing: border-box;
 }
+
 .viewer {
   display: flex;
   align-items: center;
