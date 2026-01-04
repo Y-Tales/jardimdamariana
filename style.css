@@ -4,6 +4,9 @@ body {
   background: linear-gradient(180deg, #fff1f2, #ffe4e6);
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden; /* evita scroll horizontal */
 }
 
 main {
@@ -11,8 +14,8 @@ main {
   max-width: 420px;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
-
 .viewer {
   display: flex;
   align-items: center;
@@ -31,11 +34,6 @@ button {
 /* CONTAINER */
 #card-container {
   perspective: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
 }
 
 /* CARD */
@@ -43,10 +41,6 @@ button {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.9s;
-  width: 90vw;           /* responsivo */
-  max-width: 400px;      /* limite para desktop */
-  aspect-ratio: 3/4;     /* altura proporcional à largura */
-  cursor: pointer;
 }
 
 .card.flipped {
@@ -59,20 +53,13 @@ button {
   border-radius: 16px;
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
   overflow: hidden;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* FRENTE */
 .front img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;    /* mantém proporção da imagem */
-  border-radius: 12px;
+  height: auto;
 }
 
 /* VERSO */
@@ -86,13 +73,15 @@ button {
   justify-content: center;
   padding: 20px;
   font-family: 'Patrick Hand', cursive;
-  font-size: 1rem;
+  font-size: 1.0rem;
+
+  /* 🔴 ESSENCIAL */
   white-space: pre-line;
   line-height: 1.6;
   text-align: center;
 }
 
-/* Botão voltar */
+
 .back button {
   margin-top: 16px;
   background: #fb7185;
@@ -102,7 +91,11 @@ button {
   font-size: 1rem;
 }
 
-/* Clima */
+
+
+
+
+
 #clima {
   position: fixed;
   inset: 0;
@@ -154,6 +147,11 @@ button {
   50% { transform: translateY(10px); }
 }
 
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
 /* efeito pulsar apenas para a interrogação */
 .card:last-child img {
   animation: pulsar 1.5s infinite alternate;
@@ -162,22 +160,4 @@ button {
 @keyframes pulsar {
   from { transform: scale(1); }
   to { transform: scale(1.05); }
-}
-
-/* RESPONSIVO PARA TELAS PEQUENAS */
-@media (max-width: 480px) {
-  .card {
-    width: 95vw;     /* ocupa quase toda a tela */
-    max-width: none;
-  }
-
-  .back {
-    font-size: 0.9rem;
-    padding: 15px;
-  }
-
-  .back button {
-    font-size: 0.8rem;
-    padding: 8px 12px;
-  }
 }
